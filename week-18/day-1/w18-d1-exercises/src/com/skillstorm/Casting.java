@@ -58,6 +58,25 @@ public class Casting {
 		// but Java doesn't quite know that, so we don't throw a checked Exception
 		// we instead throw a ClassCastException at runtime
 		// testDog((Dog)animal3);
+		
+		// smaller data types can be implicitly cast to larger data types without issue
+		// anything that can fit into a byte can also fit into a short, etc.
+		
+		byte smallByte = 127;
+		// this can happen implicitly, this is a wide cast
+		short mediumShort = smallByte;
+		// this needs to happen explicitly; this is a narrow cast
+		byte otherByte = (byte)mediumShort;
+		
+		System.out.println(otherByte);
+		
+		mediumShort = 1000;
+		
+		otherByte = (byte)mediumShort;
+		
+		// we get an erroneous result, because the extra bits are truncated
+		// we do NOT get any kind of Exception
+		System.out.println(otherByte);
 
 	}
 
