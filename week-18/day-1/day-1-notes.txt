@@ -1,0 +1,15 @@
+WEEK 18, DAY 1 TOPICS
+
+Primitive Data Types
+Variable Declaration
+Variable Initialization
+Instance variables vs. method variables
+Operators
+Operator Precedence
+Prefix vs. Postfix
+Implicit vs. Explicit Casting
+Narrow vs. Wide Casting
+Math.pow and Math.sqrt
+Math.floor and Math.ceil
+Math.random vs. Random class
+Wrapper Classes
