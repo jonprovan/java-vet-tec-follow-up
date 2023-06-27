@@ -1,0 +1,15 @@
+WEEK 18, DAY 2 TOPICS
+
+Booleans
+Logic Gates
+if/else/else if
+Switch
+== vs. equals()
+Bitwise operations
+Ternary Operators
+Loops
+while/do-while/for/enhanced for
+break vs. continue
+Nested Loops
+Labels
+System.in and Scanner
