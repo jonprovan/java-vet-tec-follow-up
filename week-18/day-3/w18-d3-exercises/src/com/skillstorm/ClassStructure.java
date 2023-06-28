@@ -40,6 +40,7 @@ public class ClassStructure {
 	// if I include no explicit constructors (no-args or otherwise)
 	// Java includes the "default" constructor
 	// the minute I add ANY other constructor, the "default" constructor is no longer included
+	// THE DEFAULT CONSTRUCTOR IS PROVIDED BY THE COMPILER ******
 	
 	// this one is a no-args constructor
 	public ClassStructure() {
