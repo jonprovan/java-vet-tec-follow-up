@@ -1,0 +1,15 @@
+WEEK 18, DAY 3 TOPICS
+
+Class Structure
+Constructors
+Constructor Overloading
+Default Constructor
+Constructor Chaining
+this vs. super
+Inheritance
+IS-A Relationships
+HAS-A Relationships
+public, private, protected, default
+Static Properties/Methods vs. Instance
+static keyword
+Static imports
