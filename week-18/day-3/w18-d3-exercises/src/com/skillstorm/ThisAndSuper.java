@@ -66,8 +66,8 @@ class Child extends Parent {
 	}
 	
 	// I can refer to properties via this and/or super
-	// if the property exists in parent or child, I can use this
-	// if the property only exists in child, I cannot use super
+	// if the property exists in parent OR child, I can use "this"
+	// if the property ONLY exists in child, I cannot use super
 	// if the property exists in BOTH parent and child with the same name, I have to specify which one I want
 	public void speak() {
 		System.out.println("My name is " + super.name + ", and I am " + this.age + " years old.");
