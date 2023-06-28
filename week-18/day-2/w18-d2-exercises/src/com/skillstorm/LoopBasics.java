@@ -203,6 +203,37 @@ public class LoopBasics {
 		
 		System.out.println(bands);
 		
+		System.out.println();
+		
+		// using this on objects -- pass by reference, NOT pass by value
+		
+		Band[] bandObjects = { new Band("Run-DMC"), new Band("Metallica"), new Band("Nirvana") };
+		
+		for (Band band: bandObjects) {
+			// this does nothing, because it just overwrites the pointer inside the local variable
+			// band = null;
+			
+			// BUT, if we access a property, it DOES change that value in the original Array object
+			band.name = band.name.toUpperCase();
+			
+		}
+		
+		System.out.println("" + bandObjects[0] + bandObjects[1] + bandObjects[2]);
+		
 	}
 
+}
+
+// simple class to use in an enhanced for loop
+class Band {
+	String name;
+	
+	public Band(String name) {
+		this.name = name;
+	}
+	
+	@Override
+	public String toString() {
+		return this.name;
+	}
 }
