@@ -22,7 +22,7 @@ public class Exceptions {
 		 * all objects that can be handed to the system in this way belong to the Throwable class
 		 * within Throwable, we have:
 		 * 
-		 * Error -- system problems we can't anticipate or recover from
+		 * Errors -- system problems we can't anticipate or recover from
 		 * Exceptions -- system problems, some of which we can anticipate, but all of which we CAN recover from
 		 * 
 		 * Within Exceptions, we have:
