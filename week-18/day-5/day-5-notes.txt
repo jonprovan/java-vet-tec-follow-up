@@ -1,0 +1,15 @@
+WEEK 18, DAY 5 TOPICS
+
+Exceptions
+Errors
+Throwable
+Runtime Exceptions
+try/catch/finally
+Handling Exceptions
+Checked Exceptions
+throw/throws keywords
+Catching Multiple Exceptions
+Custom Exceptions
+Suppressed Exceptions
+
+* Weekly Review *
