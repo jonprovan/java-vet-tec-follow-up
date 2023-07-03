@@ -1,0 +1,14 @@
+WEEK 19, DAY 1 TOPICS
+
+Arrays
+Collections API
+Collections Inheritance Tree
+List Interface
+ArrayList
+Diamond Operator
+ArrayList Resizing
+ArrayList Methods
+Arrays.asList()
+LinkedList
+Pointers
+ArrayList vs. LinkedList
