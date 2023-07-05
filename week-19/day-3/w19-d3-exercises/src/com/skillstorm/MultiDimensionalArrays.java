@@ -101,6 +101,54 @@ public class MultiDimensionalArrays {
 		}
 		
 		
+		// what types are the values at various depths in the multi-dimensional array?
+		
+		// can't do this, because nums2D is a 2D array, not a 1D array
+		// int[] x = nums2D;
+		
+		// I CAN do this, because the 0 index of nums2D is a 1D array of ints
+		int[] x = nums2D[0];
+		// I can also do this, because the 0 index of the 0 index of nums2D is an individual int
+		int y = nums2D[0][0];
+		// since we stored the 0 index of nums2D as x, I can also do this
+		y = x[0];
+		
+		// I CANNOT do this, because it's the wrong type
+		// String[] s = nums2D[0];
+		
+		// true for 3D arrays as well, even with default values
+		int[][][] nums3D = new int[2][2][2];
+		
+		int[][] a = nums3D[0];
+		int[] b = nums3D[0][0];
+		int c = nums3D[0][0][0];
+		
+		System.out.println();
+		
+		// looping through a 3D array
+		int[][][] printLoop = { 
+								{ { 0, 1 }, { 2, 3 }, { 4, 5 } }, 
+							    { { 6, 7 }, { 8, 9 }, { 10, 11 } }, 
+							    { { 12, 13 }, { 14, 15 }, { 16, 17 } } 
+							  };
+		
+		// going through each 2D array in the 3D array
+		OUTER: for (int i = 0; i < printLoop.length; i++) {
+			
+			// going through each 1D array in one of the 2D arrays
+			MIDDLE: for (int j = 0; j < printLoop[i].length; j++) {
+				
+				// going through each int in one of the 1D arrays
+				INNER: for (int k = 0; k < printLoop[i][j].length; k++) {
+					
+					System.out.println(printLoop[i][j][k]);
+					
+				}
+			}
+		}
+		
+		
+		
 
 	}
 
