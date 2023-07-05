@@ -1,0 +1,15 @@
+WEEK 19, DAY 3 TOPICS
+
+Stack
+LinkedList Stack Methods
+Queue
+LinkedList Queue Methods
+2D Arrays
+List of Lists
+Generics
+hashCode/equals Contract
+Set
+HashSet
+HashMap
+Key-Value Pairs
+Map Methods
