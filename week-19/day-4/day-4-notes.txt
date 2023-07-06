@@ -1,0 +1,15 @@
+WEEK 19, DAY 4 TOPICS
+
+Date
+LocalDate
+LocalTime
+LocalDateTime
+DateTimeFormatter
+Date Arithmetic
+Period
+Duration
+Enums
+Time/Space Complexity
+Big O Notation
+Big O vs. Big Theta vs. Big Omega
+Recursion w/Memoization
