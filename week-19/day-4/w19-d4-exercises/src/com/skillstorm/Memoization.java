@@ -24,7 +24,7 @@ public class Memoization {
 		 * 
 		 */
 		
-		int digitNumber = 48;
+		int digitNumber = 45;
 		long time;
 		long duration1;
 		long duration2;
@@ -49,7 +49,7 @@ public class Memoization {
 		// we need some sort of collection in which to store the memos
 		// here, we'll use an array
 		// each time we calculate a branch, we'll store it here
-		long[] fibMemos = new long[100];
+		long[] fibMemos = new long[digitNumber + 1];
 		
 		time = System.nanoTime();
 		
