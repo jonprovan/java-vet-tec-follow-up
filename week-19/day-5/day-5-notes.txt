@@ -1,0 +1,12 @@
+WEEK 19, DAY 5 TOPICS
+
+Lambdas
+Functional Interfaces
+Comparator
+Comparable
+compare() vs. compareTo()
+Collections.sort()
+PriorityQueue
+Ordered vs. Sorted Collections
+Streams
+Consumer vs. Supplier vs. Predicate
