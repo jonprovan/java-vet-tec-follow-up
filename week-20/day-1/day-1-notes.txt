@@ -1,9 +1,12 @@
 WEEK 20, DAY 1 TOPICS
 
+Git
+GitHub
+GitHub Collaboration
 Thread
 Runnable
 Thread Safety
 Atomic Classes
-Git
-GitHub
-GitHub Collaboration
+Maven
+JUnit
+Code Coverage
