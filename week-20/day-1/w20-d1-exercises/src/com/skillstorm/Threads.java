@@ -69,7 +69,7 @@ public class Threads {
 		new Thread(() -> System.out.println("Test")).start();
 		
 		// same as saying this, then feeding runnable into the above Thread
-		Runnable runnable = () -> System.out.println("test");
+		Runnable runnable = () -> System.out.println("Test");
 	
 	}
 
