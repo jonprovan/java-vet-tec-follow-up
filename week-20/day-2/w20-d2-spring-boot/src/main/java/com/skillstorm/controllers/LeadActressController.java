@@ -1,5 +1,7 @@
 package com.skillstorm.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skillstorm.W20D2SpringBootApplication;
 import com.skillstorm.models.LeadActress;
 import com.skillstorm.services.LeadActressService;
 
@@ -18,6 +21,8 @@ import com.skillstorm.services.LeadActressService;
 // RequestMapping points all requests with this URL suffix to this controller
 @RequestMapping("/lead-actress")
 public class LeadActressController {
+	
+	public static final Logger LOGGER = LoggerFactory.getLogger(LeadActressController.class);
 	
 	@Autowired
 	private LeadActressService service;
@@ -35,6 +40,7 @@ public class LeadActressController {
 	// this maps GET requests with no additional suffix to this method
 	@GetMapping
 	public Iterable<LeadActress> getAllLeadActresses() {
+		LOGGER.trace("A trace-level message from our LeadActressController");
 		return service.getAll();
 	}
 	

@@ -1,8 +1,11 @@
 package com.skillstorm.services;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skillstorm.W20D2SpringBootApplication;
 import com.skillstorm.models.LeadActress;
 import com.skillstorm.repositories.LeadActressRepository;
 
@@ -11,12 +14,15 @@ import com.skillstorm.repositories.LeadActressRepository;
 @Service
 public class LeadActressService {
 	
+	public static final Logger LOGGER = LoggerFactory.getLogger(LeadActressService.class);
+	
 	// Autowired injects another bean that we need access to
 	@Autowired
 	private LeadActressRepository repo;
 	
 	// getting all LeadActress records
 	public Iterable<LeadActress> getAll() {
+		LOGGER.debug("A debug-level message from our LeadActressService");
 		return repo.findAll();
 	}
 	
