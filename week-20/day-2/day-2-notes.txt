@@ -1,0 +1,12 @@
+WEEK 20, DAY 2 TOPICS
+
+MySQL Database Setup
+Spring Boot Project Setup
+Spring Project A-to-Z
+Models
+Repositories
+Services
+Controllers
+Endpoints
+Postman
+Logging/Log Levels
