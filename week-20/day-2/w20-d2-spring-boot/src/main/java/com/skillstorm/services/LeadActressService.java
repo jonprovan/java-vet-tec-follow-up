@@ -19,5 +19,19 @@ public class LeadActressService {
 	public Iterable<LeadActress> getAll() {
 		return repo.findAll();
 	}
+	
+	// creating a single new LeadActress record
+	public LeadActress addOne(LeadActress leadActress) {
+		// setting the id to 0 before saving, so we don't update an existing record by accident
+		leadActress.setLeadActressId(0);
+		return repo.save(leadActress);
+	}
+	
+	// deleting a single LeadActress record
+	public void deleteOne(int leadActressId) {
+		// we must check if this record exists before trying to delete it
+		if (repo.existsById(leadActressId))
+			repo.deleteById(leadActressId);
+	}
 
 }
