@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,9 +26,19 @@ public class LeadActorController {
 		return service.getAll();
 	}
 	
+	@GetMapping("/{leadActorId}")
+	public LeadActor getOneLeadActor(@PathVariable int leadActorId) {
+		return service.getOne(leadActorId);
+	}
+	
 	@PostMapping
 	public LeadActor addOneLeadActor(@RequestBody LeadActor leadActor) {
 		return service.addOne(leadActor);
+	}
+	
+	@PutMapping
+	public LeadActor updateOneLeadActor(@RequestBody LeadActor leadActor) {
+		return service.updateOne(leadActor);
 	}
 	
 	@DeleteMapping("/{leadActorId}")

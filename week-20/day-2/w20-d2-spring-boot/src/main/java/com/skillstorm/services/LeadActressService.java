@@ -20,11 +20,30 @@ public class LeadActressService {
 		return repo.findAll();
 	}
 	
+	// getting a single LeadActress record
+	public LeadActress getOne(int leadActressId) {
+		// checking to see if the id is associated with a database record
+		if (repo.findById(leadActressId).isPresent())
+			// if so, return the object
+			return repo.findById(leadActressId).get();
+		else
+			// if not, return null
+			return null;
+	}
+	
 	// creating a single new LeadActress record
 	public LeadActress addOne(LeadActress leadActress) {
 		// setting the id to 0 before saving, so we don't update an existing record by accident
 		leadActress.setLeadActressId(0);
 		return repo.save(leadActress);
+	}
+	
+	// updating a single LeadActress record
+	public LeadActress updateOne(LeadActress leadActress) {
+		if (repo.findById(leadActress.getLeadActressId()).isPresent())
+			return repo.save(leadActress);
+		else
+			return null;
 	}
 	
 	// deleting a single LeadActress record

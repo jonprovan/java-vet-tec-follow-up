@@ -13,8 +13,20 @@ public class MovieService {
 	@Autowired
 	private MovieRepository repo;
 	
+	// getting all Movie records
 	public Iterable<Movie> getAll() {
 		return repo.findAll();
+	}
+	
+	// getting a single Movie record
+	public Movie getOne(int movieId) {
+		// checking to see if the id is associated with a database record
+		if (repo.findById(movieId).isPresent())
+			// if so, return the object
+			return repo.findById(movieId).get();
+		else
+			// if not, return null
+			return null;
 	}
 	
 	// creating a single new Movie record
@@ -22,6 +34,14 @@ public class MovieService {
 		// setting the id to 0 before saving, so we don't update an existing record by accident
 		movie.setMovieId(0);
 		return repo.save(movie);
+	}
+	
+	// updating a single Movie record
+	public Movie updateOne(Movie movie) {
+		if (repo.findById(movie.getMovieId()).isPresent())
+			return repo.save(movie);
+		else
+			return null;
 	}
 	
 	// deleting a single Movie record

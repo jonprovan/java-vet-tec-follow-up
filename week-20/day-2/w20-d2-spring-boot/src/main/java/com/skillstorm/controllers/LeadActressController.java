@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,11 +22,26 @@ public class LeadActressController {
 	@Autowired
 	private LeadActressService service;
 	
+	/*
+	 * ENDPOINTS:
+	 * 
+	 * GET -- http://localhost:8080/lead-actress -- returns all LeadActress records
+	 * GET -- http://localhost:8080/lead-actress/{leadActressId} -- returns the LeadActress with lead_actress_id leadActressId
+	 * POST -- http://localhost:8080/lead-actress -- takes a LeadActress object, returns the created LeadActress object
+	 * PUT -- http://localhost:8080/lead-actress -- takes a LeadActress object, returns the updated LeadActress object
+	 * DELETE -- http://localhost:8080/lead-actress/{leadActressId} -- deletes the LeadActress with lead_actress_id leadActressId, returns nothing
+	 */
+	
 	// this maps GET requests with no additional suffix to this method
-	// ENDPOINT = GET request to http://localhost:8080/lead-actress, return all LeadActress records
 	@GetMapping
 	public Iterable<LeadActress> getAllLeadActresses() {
 		return service.getAll();
+	}
+	
+	// this maps GET requests with a numerical suffix to this method
+	@GetMapping("/{leadActressId}")
+	public LeadActress getOneLeadActress(@PathVariable int leadActressId) {
+		return service.getOne(leadActressId);
 	}
 	
 	// this maps POST requests with no additional suffix to this method
@@ -33,6 +49,12 @@ public class LeadActressController {
 	// RequestBody tells us this intake object will come from the body of the POST request
 	public LeadActress addOneLeadActress(@RequestBody LeadActress leadActress) {
 		return service.addOne(leadActress);
+	}
+	
+	// this maps PUT requests with no additional suffix to this method
+	@PutMapping
+	public LeadActress updateOneLeadActress(@RequestBody LeadActress leadActress) {
+		return service.updateOne(leadActress);
 	}
 	
 	// this maps DELETE requests with a numerical suffix to this method
