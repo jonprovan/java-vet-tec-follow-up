@@ -26,7 +26,7 @@ public class Movie {
 	@Column(name = "genre")
 	private String genre;
 
-	@Column(name = "releaseYear")
+	@Column(name = "release_year")
 	private int releaseYear;
 
 	// this creates a one-to-one relationship with the lead_actor table -- one movie refers to one lead_actor
@@ -69,6 +69,78 @@ public class Movie {
 		return "Movie [movieId=" + movieId + ", name=" + name + ", genre=" + genre + ", releaseYear=" + releaseYear
 				+ ", leadActor=" + leadActor + ", leadActress=" + leadActress + ", boxOfficeGross=" + boxOfficeGross
 				+ ", imageUrl=" + imageUrl + ", imdbUrl=" + imdbUrl + "]";
+	}
+	
+	public int getMovieId() {
+		return movieId;
+	}
+
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public int getReleaseYear() {
+		return releaseYear;
+	}
+
+	public void setReleaseYear(int releaseYear) {
+		this.releaseYear = releaseYear;
+	}
+
+	public LeadActor getLeadActor() {
+		return leadActor;
+	}
+
+	public void setLeadActor(LeadActor leadActor) {
+		this.leadActor = leadActor;
+	}
+
+	public LeadActress getLeadActress() {
+		return leadActress;
+	}
+
+	public void setLeadActress(LeadActress leadActress) {
+		this.leadActress = leadActress;
+	}
+
+	public int getBoxOfficeGross() {
+		return boxOfficeGross;
+	}
+
+	public void setBoxOfficeGross(int boxOfficeGross) {
+		this.boxOfficeGross = boxOfficeGross;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public String getImdbUrl() {
+		return imdbUrl;
+	}
+
+	public void setImdbUrl(String imdbUrl) {
+		this.imdbUrl = imdbUrl;
 	}
 
 	@Override
