@@ -15,6 +15,9 @@ import { LeadActressComponent } from './lead-actress/lead-actress.component';
 import { LeadActorComponent } from './lead-actor/lead-actor.component';
 import { MovieComponent } from './movie/movie.component';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { LeadActressDetailComponent } from './lead-actress-detail/lead-actress-detail.component';
+import { LeadActorDetailComponent } from './lead-actor-detail/lead-actor-detail.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     LeadActressComponent,
     LeadActorComponent,
     MovieComponent,
-    TruncatePipe
+    TruncatePipe,
+    LeadActressDetailComponent,
+    LeadActorDetailComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,

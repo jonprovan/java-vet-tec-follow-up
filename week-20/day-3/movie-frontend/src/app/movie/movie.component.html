@@ -1,4 +1,4 @@
-<section>
+<section (click)="getDetails()">
     <img [src]="movie.imageUrl" [alt]="movie.name">
     <!-- this uses a Pipe to transform the incoming text data
          and truncate it if it's too long

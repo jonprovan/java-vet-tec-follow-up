@@ -1,0 +1,29 @@
+aside {
+    padding: 12px;
+}
+
+table {
+    text-align: left;
+    border-collapse: collapse;
+    border: solid 1px rgb(134, 134, 134);
+}
+
+th, td {
+    padding: 10px 20px 10px 10px;
+}
+
+th {
+    min-width: 170px;
+}
+
+.odd {
+    background-color: rgb(210, 241, 252);
+}
+
+.even {
+    background-color: rgb(194, 194, 194);
+}
+
+aside > img {
+    width: 250px;
+}

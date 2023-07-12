@@ -22,18 +22,33 @@ export class BackendService {
   leadActressesRaw: LeadActress[] = [];
   leadActorsRaw: LeadActor[] = [];
   moviesRaw: Movie[] = [];
+  leadActressDetailRaw: LeadActress = new LeadActress(0, '', 0, 0, '', '');
+  leadActorDetailRaw: LeadActor = new LeadActor(0, '', 0, 0, '', '');
+  movieDetailRaw: Movie = new Movie(0, '', '', 0,
+                                    new LeadActor(0, '', 0, 0, '', ''),
+                                    new LeadActress(0, '', 0, 0, '', ''),
+                                    0, '', '');
 
   // these are subjects who store the state of the above arrays
   // and notify any Observables when that state has changed
   leadActressesSubject = new BehaviorSubject<LeadActress[]>([]);
   leadActorsSubject = new BehaviorSubject<LeadActor[]>([]);
   moviesSubject = new BehaviorSubject<Movie[]>([]);
+  leadActressDetailSubject = new BehaviorSubject<LeadActress>(new LeadActress(0, '', 0, 0, '', ''));
+  leadActorDetailSubject = new BehaviorSubject<LeadActor>(new LeadActor(0, '', 0, 0, '', ''));
+  movieDetailSubject = new BehaviorSubject<Movie>(new Movie(0, '', '', 0,
+                                                  new LeadActor(0, '', 0, 0, '', ''),
+                                                  new LeadActress(0, '', 0, 0, '', ''),
+                                                  0, '', ''));
 
   // these are the BehaviorSubjects above exported as Observables
   // other components will subscribe to these and be notified when they change
   leadActresses = this.leadActressesSubject.asObservable();
   leadActors = this.leadActorsSubject.asObservable();
   movies = this.moviesSubject.asObservable();
+  leadActressDetail = this.leadActressDetailSubject.asObservable();
+  leadActorDetail = this.leadActorDetailSubject.asObservable();
+  movieDetail = this.movieDetailSubject.asObservable();
 
 
 
@@ -66,6 +81,19 @@ export class BackendService {
              });
   }
 
+  // getting single lead actress for the detail page
+  getLeadActressById(leadActressId: number) {
+    this.http.get(this.baseUrl + 'lead-actress/' + leadActressId, { observe: 'response'})
+             .subscribe(data => {
+
+              let temp: any = data.body;
+
+              this.leadActressDetailRaw = temp;
+
+              this.leadActressDetailSubject.next(this.leadActressDetailRaw);
+             });
+  }
+
   // getting all lead actors
   getAllLeadActors() {
     this.http.get(this.baseUrl + 'lead-actor', { observe: 'response' })
@@ -84,6 +112,19 @@ export class BackendService {
                 }
 
                 this.leadActorsSubject.next(this.leadActorsRaw);
+             });
+  }
+
+  // getting single lead actor for the detail page
+  getLeadActorById(leadActorId: number) {
+    this.http.get(this.baseUrl + 'lead-actor/' + leadActorId, { observe: 'response'})
+             .subscribe(data => {
+
+              let temp: any = data.body;
+
+              this.leadActorDetailRaw = temp;
+
+              this.leadActorDetailSubject.next(this.leadActorDetailRaw);
              });
   }
 
@@ -118,6 +159,19 @@ export class BackendService {
                 }
 
                 this.moviesSubject.next(this.moviesRaw);
+             });
+  }
+
+  // getting single movie for the detail page
+  getMovieById(movieId: number) {
+    this.http.get(this.baseUrl + 'movie/' + movieId, { observe: 'response'})
+             .subscribe(data => {
+
+              let temp: any = data.body;
+
+              this.movieDetailRaw = temp;
+
+              this.movieDetailSubject.next(this.movieDetailRaw);
              });
   }
 

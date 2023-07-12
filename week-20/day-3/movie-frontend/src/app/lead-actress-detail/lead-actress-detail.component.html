@@ -1,0 +1,34 @@
+<main>
+    <article>
+        <h1>LEAD ACTRESS DETAILS — {{ leadActress.name }} (ID: {{ leadActress.leadActressId }})</h1>
+
+        <table>
+            <tbody>
+                <tr class="odd">
+                    <th>Database ID</th>
+                    <td>{{ leadActress.leadActressId }}</td>
+                </tr>
+                <tr class="even">
+                    <th>Name</th>
+                    <td>{{ leadActress.name }}</td>
+                </tr>
+                <tr class="odd">
+                    <th>Age</th>
+                    <td>{{ leadActress.age }}</td>
+                </tr>
+                <tr class="even">
+                    <th>Academy Awards Won</th>
+                    <td>{{ leadActress.academyAwards }}</td>
+                </tr>
+                <tr class="odd">
+                    <th>IMDB URL</th>
+                    <td><a [href]="leadActress.imdbUrl" target="_blank">{{ leadActress.imdbUrl }}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+
+    <aside>
+        <img [src]="leadActress.imageUrl" [alt]="leadActress.name">
+    </aside>
+</main>

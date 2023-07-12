@@ -1,0 +1,46 @@
+<main>
+    <article>
+        <h1>MOVIE DETAILS — {{ movie.name }} (ID: {{ movie.movieId }})</h1>
+
+        <table>
+            <tbody>
+                <tr class="odd">
+                    <th>Database ID</th>
+                    <td>{{ movie.movieId }}</td>
+                </tr>
+                <tr class="even">
+                    <th>Name</th>
+                    <td>{{ movie.name }}</td>
+                </tr>
+                <tr class="odd">
+                    <th>Genre</th>
+                    <td>{{ movie.genre }}</td>
+                </tr>
+                <tr class="even">
+                    <th>Release Years</th>
+                    <td>{{ movie.releaseYear }}</td>
+                </tr>
+                <tr class="odd">
+                    <th>Lead Actor</th>
+                    <td>{{ movie.leadActor.name }}</td>
+                </tr>
+                <tr class="even">
+                    <th>Lead Actress</th>
+                    <td>{{ movie.leadActress.name }}</td>
+                </tr>
+                <tr class="odd">
+                    <th>Box Office Gross</th>
+                    <td>${{ movie.boxOfficeGross }}</td>
+                </tr>
+                <tr class="even">
+                    <th>IMDB URL</th>
+                    <td><a [href]="movie.imdbUrl" target="_blank">{{ movie.imdbUrl }}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+
+    <aside>
+        <img [src]="movie.imageUrl" [alt]="movie.name">
+    </aside>
+</main>
