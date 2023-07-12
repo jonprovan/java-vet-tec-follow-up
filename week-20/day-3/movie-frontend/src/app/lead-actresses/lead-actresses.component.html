@@ -1,0 +1,19 @@
+<main>
+    <article>
+        <h1>LEAD ACTRESSES</h1>
+
+        <!-- remember, this is a semantic-free container
+             that will only be instantiated if the conditional
+             or loop it describes returns something -->
+        <ng-container *ngFor="let leadActress of leadActresses">
+
+            <app-lead-actress [leadActress]="leadActress"></app-lead-actress>
+
+        </ng-container>
+
+    </article>
+
+    <aside>
+        
+    </aside>
+</main>

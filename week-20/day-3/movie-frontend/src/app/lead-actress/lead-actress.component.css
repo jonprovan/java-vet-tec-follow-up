@@ -1,0 +1,21 @@
+section {
+    display: inline-block;
+    padding: 10px;
+    background-color: rgb(240, 240, 240);
+    border: solid 1px rgb(0, 0, 0, .25);
+    border-radius: 6px;
+    margin: 0px 10px 10px 0px;
+}
+
+img {
+    width: 130px;
+    height: 192px;
+}
+
+p {
+    margin: 0px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    color: rgb(0, 0, 0, .75);
+}

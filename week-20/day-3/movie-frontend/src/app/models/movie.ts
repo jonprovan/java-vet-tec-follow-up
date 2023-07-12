@@ -4,24 +4,24 @@ import { LeadActress } from "./lead-actress";
 export class Movie {
 
     movieId: number;
-    name: String;
-    genre: String;
+    name: string;
+    genre: string;
     releaseYear: number;
     leadActor: LeadActor;
     leadActress: LeadActress;
     boxOfficeGross: number;
-    imageUrl: String;
-    imdbUrl: String;
+    imageUrl: string;
+    imdbUrl: string;
 
     constructor(movieId: number,
-                name: String,
-                genre: String,
+                name: string,
+                genre: string,
                 releaseYear: number,
                 leadActor: LeadActor,
                 leadActress: LeadActress,
                 boxOfficeGross: number,
-                imageUrl: String,
-                imdbUrl: String) {
+                imageUrl: string,
+                imdbUrl: string) {
                     this.movieId = movieId;
                     this.name = name;
                     this.genre = genre;

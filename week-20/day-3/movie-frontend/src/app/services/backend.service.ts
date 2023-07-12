@@ -9,6 +9,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { LeadActress } from 'src/app/models/lead-actress';
 import { LeadActor } from 'src/app/models/lead-actor';
 import { Movie } from 'src/app/models/movie';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,25 @@ import { Movie } from 'src/app/models/movie';
 export class BackendService {
 
   baseUrl: String = 'http://localhost:8080/';
+
+  // these are raw arrays containing the returned data from our database
   leadActressesRaw: LeadActress[] = [];
   leadActorsRaw: LeadActor[] = [];
   moviesRaw: Movie[] = [];
+
+  // these are subjects who store the state of the above arrays
+  // and notify any Observables when that state has changed
+  leadActressesSubject = new BehaviorSubject<LeadActress[]>([]);
+  leadActorsSubject = new BehaviorSubject<LeadActor[]>([]);
+  moviesSubject = new BehaviorSubject<Movie[]>([]);
+
+  // these are the BehaviorSubjects above exported as Observables
+  // other components will subscribe to these and be notified when they change
+  leadActresses = this.leadActressesSubject.asObservable();
+  leadActors = this.leadActorsSubject.asObservable();
+  movies = this.moviesSubject.asObservable();
+
+
 
   constructor(private http: HttpClient) {
     this.getAllLeadActresses();
@@ -43,7 +60,9 @@ export class BackendService {
                                                              item.imdbUrl));
                 }
 
-                console.log(this.leadActressesRaw);
+                // this updates the BehaviorSubject with the new array
+                this.leadActressesSubject.next(this.leadActressesRaw);
+
              });
   }
 
@@ -64,7 +83,7 @@ export class BackendService {
                                                         item.imdbUrl));
                 }
 
-                console.log(this.leadActorsRaw);
+                this.leadActorsSubject.next(this.leadActorsRaw);
              });
   }
 
@@ -98,7 +117,7 @@ export class BackendService {
                                                 item.imdbUrl));
                 }
 
-                console.log(this.moviesRaw);
+                this.moviesSubject.next(this.moviesRaw);
              });
   }
 

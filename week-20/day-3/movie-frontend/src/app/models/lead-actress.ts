@@ -1,18 +1,18 @@
 export class LeadActress {
 
     leadActressId: number;
-    name: String;
+    name: string;
     age: number;
     academyAwards: number;
-    imageUrl: String;
-    imdbUrl: String;
+    imageUrl: string;
+    imdbUrl: string;
 
     constructor(leadActressId: number,
-                name: String,
+                name: string,
                 age: number,
                 academyAwards: number,
-                imageUrl: String,
-                imdbUrl: String) {
+                imageUrl: string,
+                imdbUrl: string) {
                     this.leadActressId = leadActressId;
                     this.name = name;
                     this.age = age;

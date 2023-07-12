@@ -9,5 +9,4 @@ import { BackendService } from 'src/app/services/backend.service';
 export class AppComponent {
   title = 'movie-frontend';
 
-  constructor(private backend: BackendService) {}
 }

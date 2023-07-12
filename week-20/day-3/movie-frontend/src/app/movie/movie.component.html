@@ -1,0 +1,7 @@
+<section>
+    <img [src]="movie.imageUrl" [alt]="movie.name">
+    <!-- this uses a Pipe to transform the incoming text data
+         and truncate it if it's too long
+         check out app/pipes/truncate.pipe.ts for the logic -->
+    <p>{{ movie.name | truncate : 18 }}</p>
+</section>
