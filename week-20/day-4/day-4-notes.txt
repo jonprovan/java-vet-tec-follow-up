@@ -1,0 +1,18 @@
+WEEK 20, DAY 3 & DAY 4 TOPICS
+
+Angular Project Setup
+Angular CLI
+HTML Files
+CSS Files
+TS Files
+Components
+Classes
+Services
+HTTP Requests
+Passing Data Between Components
+Routing
+Displaying Dynamic Data
+Template vs. Reactive Forms
+Testing In Angular
+
+(The Angular project requires the MySQL database and Spring Boot project from Week 20, Day 2.)
