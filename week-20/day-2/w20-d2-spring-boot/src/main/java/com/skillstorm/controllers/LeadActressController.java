@@ -3,6 +3,7 @@ package com.skillstorm.controllers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import com.skillstorm.services.LeadActressService;
 @RestController
 // RequestMapping points all requests with this URL suffix to this controller
 @RequestMapping("/lead-actress")
+@CrossOrigin(origins = "*")
 public class LeadActressController {
 	
 	public static final Logger LOGGER = LoggerFactory.getLogger(LeadActressController.class);
