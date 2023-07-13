@@ -199,6 +199,30 @@ export class BackendService {
              })
   }
 
+  // updating a lead actor
+  updateLeadActor(leadActor: LeadActor) {
+    this.http.put(this.baseUrl + 'lead-actor', leadActor, { observe: 'response' })
+             .subscribe(() => {
+              this.getAllLeadActors();
+             })
+  }
+
+  // updating a lead actress
+  updateLeadActress(leadActress: LeadActress) {
+    this.http.put(this.baseUrl + 'lead-actress', leadActress, { observe: 'response' })
+             .subscribe(() => {
+              this.getAllLeadActresses();
+             })
+  }
+
+  // updating a movie
+  updateMovie(movie: Movie) {
+    this.http.put(this.baseUrl + 'movie', movie, { observe: 'response' })
+             .subscribe(() => {
+              this.getAllMovies();
+             })
+  }
+
   // deleting a movie
   deleteLeadActorById(leadActorId: number) {
     this.http.delete(this.baseUrl + 'lead-actor/' + leadActorId, { observe: 'response'})

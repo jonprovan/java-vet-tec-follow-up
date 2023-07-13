@@ -2,6 +2,7 @@
     <img [src]="leadActress.imageUrl" [alt]="leadActress.name" (click)="getDetails()">
     <p>{{ leadActress.name }}</p>
     <button *ngIf="index !== 0" (click)="moveLeadActress('left')"><<</button>
+    <button id="update" (click)="updateLeadActress()">&DoubleUpArrow;</button>
     <button id="delete" *ngIf="!active" (click)="deleteLeadActress()">X</button>
     <button *ngIf="index !== lastIndex" (click)="moveLeadActress('right')">>></button>
 </section>

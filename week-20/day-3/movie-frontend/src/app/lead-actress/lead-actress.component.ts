@@ -20,6 +20,7 @@ export class LeadActressComponent {
   // Outputs send data to the parent component
   // in the form of an event
   @Output() moveLeadActressEvent = new EventEmitter<string>();
+  @Output() updateLeadActressEvent = new EventEmitter<LeadActress>();
 
   // injecting a router to use for the detail links
   constructor(private router: Router, private backend: BackendService) {}
@@ -32,6 +33,11 @@ export class LeadActressComponent {
   // a method that fires whenever the user clicks on the L/R buttons
   moveLeadActress(direction: string) {
     this.moveLeadActressEvent.emit(direction);
+  }
+
+  // sending this LeadActress up to be updated
+  updateLeadActress() {
+    this.updateLeadActressEvent.emit(this.leadActress);
   }
 
   // calling our service method for deleting a lead actress

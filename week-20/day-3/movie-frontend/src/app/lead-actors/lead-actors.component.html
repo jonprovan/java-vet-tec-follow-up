@@ -8,7 +8,8 @@
                             [active]="activeLeadActorIds.includes(leadActor.leadActorId)"
                             [index]="i" 
                             [lastIndex]="leadActors.length - 1"
-                            (moveLeadActorEvent)="moveLeadActor($event, i)"></app-lead-actor>
+                            (moveLeadActorEvent)="moveLeadActor($event, i)"
+                            (updateLeadActorEvent)="switchToUpdate($event)"></app-lead-actor>
 
         </ng-container>
 
@@ -17,7 +18,8 @@
     <aside>
 
         <form #form>
-            <h2>ADD NEW LEAD ACTOR</h2>
+            <h2 *ngIf="leadActorId === 0">ADD NEW LEAD ACTOR</h2>
+            <h2 *ngIf="leadActorId !== 0">UPDATE LEAD ACTOR (ID: {{ leadActorId }})</h2>
 
             <label for="name">Name</label>
             <input type="text" id="name" name="name" [(ngModel)]="name">
@@ -30,12 +32,23 @@
             <label for="imdbUrl">IMDB URL</label>
             <input type="text" id="imdbUrl" name="imdbUrl" [(ngModel)]="imdbUrl">
 
-            <button (click)="addLeadActor(); form.reset();"
+            <button *ngIf="leadActorId === 0"
+                    (click)="addLeadActor(); form.reset();"
                     [disabled]="name === '' 
                              || age <= 0 
                              || academyAwards < 0 
                              || imageUrl === '' 
-                             || imdbUrl === ''">SUBMIT</button>
+                             || imdbUrl === ''">ADD</button>
+
+            <button *ngIf="leadActorId !== 0"
+                    (click)="updateLeadActor(); form.reset();"
+                    [disabled]="name === '' 
+                            || age <= 0 
+                            || academyAwards < 0 
+                            || imageUrl === '' 
+                            || imdbUrl === ''">UPDATE</button>
+
+            <button *ngIf="leadActorId !== 0" (click)="cancelUpdate()">CANCEL</button>
         </form>
         
     </aside>

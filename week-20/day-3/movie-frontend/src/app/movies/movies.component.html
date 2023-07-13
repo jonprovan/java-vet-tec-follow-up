@@ -7,7 +7,8 @@
             <app-movie [movie]="movie" 
                        [index]="i" 
                        [lastIndex]="movies.length - 1"
-                       (moveMovieEvent)="moveMovie($event, i)"></app-movie>
+                       (moveMovieEvent)="moveMovie($event, i)"
+                       (updateMovieEvent)="switchToUpdate($event)"></app-movie>
 
         </ng-container>
 
@@ -16,7 +17,8 @@
     <aside>
 
         <form #form>
-            <h2>ADD NEW MOVIE</h2>
+            <h2 *ngIf="movieId === 0">ADD NEW MOVIE</h2>
+            <h2 *ngIf="movieId !== 0">UPDATE MOVIE (ID: {{ movieId }})</h2>
 
             <label for="name">Name</label>
             <input type="text" id="name" name="name" [(ngModel)]="name">
@@ -24,6 +26,25 @@
             <input type="text" id="genre" name="genre" [(ngModel)]="genre">
             <label for="releaseYear">Release Year</label>
             <input type="number" id="releaseYear" name="releaseYear" [(ngModel)]="releaseYear">
+            
+            <label for="leadActor">Lead Actor</label>
+            <select id="leadActor" name="leadActor" [(ngModel)]="leadActor">
+
+                <ng-container *ngFor="let leadActor of leadActors; let i = index">
+                    <option [value]="i">{{ leadActor.name }}</option>
+                </ng-container>
+
+            </select>
+
+            <label for="leadActress">Lead Actress</label>
+            <select id="leadActress" name="leadActress" [(ngModel)]="leadActress">
+
+                <ng-container *ngFor="let leadActress of leadActresses; let i = index">
+                    <option [value]="i">{{ leadActress.name }}</option>
+                </ng-container>
+
+            </select>
+            
             <label for="boxOfficeGross">Box Office Gross</label>
             <input type="number" id="boxOfficeGross" name="boxOfficeGross" [(ngModel)]="boxOfficeGross">
             <label for="imageUrl">Image URL</label>
@@ -31,13 +52,25 @@
             <label for="imdbUrl">IMDB URL</label>
             <input type="text" id="imdbUrl" name="imdbUrl" [(ngModel)]="imdbUrl">
 
-            <button (click)="addMovie(); form.reset();"
+            <button *ngIf="movieId === 0"
+                    (click)="addMovie(); form.reset();"
                     [disabled]="name === ''
                              || genre === ''
                              || releaseYear < 1890
                              || boxOfficeGross < 0
                              || imageUrl === '' 
-                             || imdbUrl === ''">SUBMIT</button>
+                             || imdbUrl === ''">ADD</button>
+
+            <button *ngIf="movieId !== 0"
+                    (click)="updateMovie(); form.reset();"
+                    [disabled]="name === ''
+                             || genre === ''
+                             || releaseYear < 1890
+                             || boxOfficeGross < 0
+                             || imageUrl === '' 
+                             || imdbUrl === ''">UPDATE</button>
+                  
+            <button *ngIf="movieId !== 0" (click)="cancelUpdate()">CANCEL</button>
         </form>
         
     </aside>

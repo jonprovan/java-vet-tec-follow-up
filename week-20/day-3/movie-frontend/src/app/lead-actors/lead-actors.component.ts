@@ -51,4 +51,35 @@ export class LeadActorsComponent {
                                             this.imdbUrl));
   }
 
+  // this runs when the user clicks the update button in a child component
+  switchToUpdate(leadActor: LeadActor) {
+    this.leadActorId = leadActor.leadActorId;
+    this.name = leadActor.name;
+    this.age = leadActor.age;
+    this.academyAwards = leadActor.academyAwards;
+    this.imageUrl = leadActor.imageUrl;
+    this.imdbUrl = leadActor.imdbUrl;
+  }
+
+  // this gets back to the add form
+  cancelUpdate() {
+    this.leadActorId = 0;
+    this.name = '';
+    this.age = 0;
+    this.academyAwards = 0;
+    this.imageUrl = '';
+    this.imdbUrl = '';
+  }
+
+  // this updates the lead actor in the database
+  updateLeadActor() {
+    this.bes.updateLeadActor(new LeadActor(this.leadActorId, 
+                                           this.name, 
+                                           this.age, 
+                                           this.academyAwards,
+                                           this.imageUrl,
+                                           this.imdbUrl));
+    this.leadActorId = 0;
+  }
+
 }

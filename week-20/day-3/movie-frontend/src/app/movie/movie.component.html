@@ -7,6 +7,7 @@
     <!-- using *ngIf to display these buttons
          only if this movie is in a valid position -->
     <button *ngIf="index !== 0" (click)="moveMovie('left')"><<</button>
+    <button id="update" (click)="updateMovie()">&DoubleUpArrow;</button>
     <button id="delete" (click)="deleteMovie()">X</button>
     <button *ngIf="index !== lastIndex" (click)="moveMovie('right')">>></button>
 </section>

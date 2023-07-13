@@ -11,7 +11,8 @@
                               [active]="activeLeadActressIds.includes(leadActress.leadActressId)"
                               [index]="i" 
                               [lastIndex]="leadActresses.length - 1"
-                              (moveLeadActressEvent)="moveLeadActress($event, i)"></app-lead-actress>
+                              (moveLeadActressEvent)="moveLeadActress($event, i)"
+                              (updateLeadActressEvent)="switchToUpdate($event)"></app-lead-actress>
 
         </ng-container>
 
@@ -20,7 +21,8 @@
     <aside>
 
         <form #form>
-            <h2>ADD NEW LEAD ACTRESS</h2>
+            <h2 *ngIf="leadActressId === 0">ADD NEW LEAD ACTRESS</h2>
+            <h2 *ngIf="leadActressId !== 0">UPDATE LEAD ACTRESS (ID: {{ leadActressId }})</h2>
 
             <label for="name">Name</label>
             <input type="text" id="name" name="name" [(ngModel)]="name">
@@ -33,12 +35,23 @@
             <label for="imdbUrl">IMDB URL</label>
             <input type="text" id="imdbUrl" name="imdbUrl" [(ngModel)]="imdbUrl">
 
-            <button (click)="addLeadActress(); form.reset();"
+            <button *ngIf="leadActressId === 0"
+                    (click)="addLeadActress(); form.reset();"
                     [disabled]="name === '' 
                              || age <= 0 
                              || academyAwards < 0 
                              || imageUrl === '' 
-                             || imdbUrl === ''">SUBMIT</button>
+                             || imdbUrl === ''">ADD</button>
+
+            <button *ngIf="leadActressId !== 0"
+                    (click)="updateLeadActress(); form.reset();"
+                    [disabled]="name === '' 
+                            || age <= 0 
+                            || academyAwards < 0 
+                            || imageUrl === '' 
+                            || imdbUrl === ''">UPDATE</button>
+         
+            <button *ngIf="leadActressId !== 0" (click)="cancelUpdate()">CANCEL</button>
         </form>
         
     </aside>

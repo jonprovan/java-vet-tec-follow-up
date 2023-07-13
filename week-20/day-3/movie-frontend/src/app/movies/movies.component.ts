@@ -20,8 +20,8 @@ export class MoviesComponent {
   name: string = '';
   genre: string = '';
   releaseYear: number = 0;
-  leadActor: LeadActor = new LeadActor(0, '', 0, 0, '', '');
-  leadActress: LeadActress = new LeadActress(0, '', 0, 0, '', '');
+  leadActor: number = 0;
+  leadActress: number = 0;
   boxOfficeGross: number = 0;
   imageUrl: string = '';
   imdbUrl: string = '';
@@ -54,11 +54,51 @@ export class MoviesComponent {
                                 this.name,
                                 this.genre,
                                 this.releaseYear,
-                                this.leadActor,
-                                this.leadActress,
+                                this.leadActors[this.leadActor],
+                                this.leadActresses[this.leadActress],
                                 this.boxOfficeGross,
                                 this.imageUrl,
                                 this.imdbUrl));
+  }
+
+  // this runs when the user clicks the update button in a child component
+  switchToUpdate(movie: Movie) {
+    this.movieId = movie.movieId;
+    this.name = movie.name;
+    this.genre = movie.genre;
+    this.releaseYear = movie.releaseYear;
+    this.leadActor = this.leadActors.indexOf(movie.leadActor);
+    this.leadActress = this.leadActresses.indexOf(movie.leadActress);
+    this.boxOfficeGross = movie.boxOfficeGross;
+    this.imageUrl = movie.imageUrl;
+    this.imdbUrl = movie.imdbUrl;
+  }
+
+  // this gets back to the add form
+  cancelUpdate() {
+    this.movieId = 0;
+    this.name = '';
+    this.genre = '';
+    this.releaseYear = 0;
+    this.leadActor = 0;
+    this.leadActress = 0;
+    this.boxOfficeGross = 0;
+    this.imageUrl = '';
+    this.imdbUrl = '';
+  }
+
+  // this updates the movie in the database
+  updateMovie() {
+    this.bes.updateMovie(new Movie(this.movieId, 
+                                   this.name, 
+                                   this.genre, 
+                                   this.releaseYear,
+                                   this.leadActors[this.leadActor],
+                                   this.leadActresses[this.leadActress],
+                                   this.boxOfficeGross,
+                                   this.imageUrl,
+                                   this.imdbUrl));
+    this.movieId = 0;
   }
 
 }

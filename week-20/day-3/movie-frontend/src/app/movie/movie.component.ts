@@ -23,6 +23,7 @@ export class MovieComponent {
   // Outputs send data to the parent component
   // in the form of an event
   @Output() moveMovieEvent = new EventEmitter<string>();
+  @Output() updateMovieEvent = new EventEmitter<Movie>();
 
   // injecting a router to use for the detail links
   constructor(private router: Router, private backend: BackendService) {}
@@ -35,6 +36,11 @@ export class MovieComponent {
   // a method that fires whenever the user clicks on the L/R buttons
   moveMovie(direction: string) {
     this.moveMovieEvent.emit(direction);
+  }
+
+  // sending this Movie up to be updated
+  updateMovie() {
+    this.updateMovieEvent.emit(this.movie);
   }
 
   // calling our service method for deleting a movie
