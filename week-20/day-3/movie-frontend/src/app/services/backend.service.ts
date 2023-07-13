@@ -5,7 +5,7 @@
 // and to hold centralized data
 
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { LeadActress } from 'src/app/models/lead-actress';
 import { LeadActor } from 'src/app/models/lead-actor';
 import { Movie } from 'src/app/models/movie';

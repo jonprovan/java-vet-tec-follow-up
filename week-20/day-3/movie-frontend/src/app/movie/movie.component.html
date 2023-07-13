@@ -1,7 +1,11 @@
-<section (click)="getDetails()">
-    <img [src]="movie.imageUrl" [alt]="movie.name">
+<section>
+    <img [src]="movie.imageUrl" [alt]="movie.name" (click)="getDetails()">
     <!-- this uses a Pipe to transform the incoming text data
          and truncate it if it's too long
          check out app/pipes/truncate.pipe.ts for the logic -->
     <p>{{ movie.name | truncate : 18 }}</p>
+    <!-- using *ngIf to display these buttons
+         only if this movie is in a valid position -->
+    <button *ngIf="index !== 0" (click)="moveMovie('left')"><<</button>
+    <button *ngIf="index !== lastIndex" (click)="moveMovie('right')">>></button>
 </section>

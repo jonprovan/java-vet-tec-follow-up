@@ -17,4 +17,12 @@ export class MoviesComponent {
     });
   }
 
+  moveMovie(direction: string, index: number) {
+    if (direction === 'left') {
+      this.movies.splice(index - 1, 0, ...this.movies.splice(index, 1));
+    } else {
+      this.movies.splice(index + 1, 0, ...this.movies.splice(index, 1));
+    }
+  }
+
 }
