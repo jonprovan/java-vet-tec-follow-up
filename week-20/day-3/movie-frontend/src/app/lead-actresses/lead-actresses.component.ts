@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { LeadActress } from '../models/lead-actress';
 import { BackendService } from '../services/backend.service';
-import { Movie } from '../models/movie';
 
 @Component({
   selector: 'app-lead-actresses',

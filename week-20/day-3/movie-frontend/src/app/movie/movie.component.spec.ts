@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieComponent } from './movie.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TruncatePipe } from '../pipes/truncate.pipe';
 
 describe('MovieComponent', () => {
   let component: MovieComponent;
@@ -8,7 +10,8 @@ describe('MovieComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MovieComponent]
+      imports: [HttpClientModule],
+      declarations: [MovieComponent, TruncatePipe]
     });
     fixture = TestBed.createComponent(MovieComponent);
     component = fixture.componentInstance;

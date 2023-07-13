@@ -20,8 +20,8 @@ export class MoviesComponent {
   name: string = '';
   genre: string = '';
   releaseYear: number = 0;
-  leadActor: number = 0;
-  leadActress: number = 0;
+  leadActorIndex: number = 0;
+  leadActressIndex: number = 0;
   boxOfficeGross: number = 0;
   imageUrl: string = '';
   imdbUrl: string = '';
@@ -54,8 +54,8 @@ export class MoviesComponent {
                                 this.name,
                                 this.genre,
                                 this.releaseYear,
-                                this.leadActors[this.leadActor],
-                                this.leadActresses[this.leadActress],
+                                this.leadActors[this.leadActorIndex],
+                                this.leadActresses[this.leadActressIndex],
                                 this.boxOfficeGross,
                                 this.imageUrl,
                                 this.imdbUrl));
@@ -67,8 +67,8 @@ export class MoviesComponent {
     this.name = movie.name;
     this.genre = movie.genre;
     this.releaseYear = movie.releaseYear;
-    this.leadActor = this.leadActors.indexOf(movie.leadActor);
-    this.leadActress = this.leadActresses.indexOf(movie.leadActress);
+    this.leadActorIndex = this.leadActors.findIndex(leadActor => leadActor.leadActorId === movie.leadActor.leadActorId);
+    this.leadActressIndex = this.leadActresses.findIndex(leadActress => leadActress.leadActressId === movie.leadActress.leadActressId);
     this.boxOfficeGross = movie.boxOfficeGross;
     this.imageUrl = movie.imageUrl;
     this.imdbUrl = movie.imdbUrl;
@@ -80,8 +80,8 @@ export class MoviesComponent {
     this.name = '';
     this.genre = '';
     this.releaseYear = 0;
-    this.leadActor = 0;
-    this.leadActress = 0;
+    this.leadActorIndex = 0;
+    this.leadActressIndex = 0;
     this.boxOfficeGross = 0;
     this.imageUrl = '';
     this.imdbUrl = '';
@@ -93,8 +93,8 @@ export class MoviesComponent {
                                    this.name, 
                                    this.genre, 
                                    this.releaseYear,
-                                   this.leadActors[this.leadActor],
-                                   this.leadActresses[this.leadActress],
+                                   this.leadActors[this.leadActorIndex],
+                                   this.leadActresses[this.leadActressIndex],
                                    this.boxOfficeGross,
                                    this.imageUrl,
                                    this.imdbUrl));

@@ -27,20 +27,20 @@
             <label for="releaseYear">Release Year</label>
             <input type="number" id="releaseYear" name="releaseYear" [(ngModel)]="releaseYear">
             
-            <label for="leadActor">Lead Actor</label>
-            <select id="leadActor" name="leadActor" [(ngModel)]="leadActor">
+            <label for="leadActorIndex">Lead Actor</label>
+            <select id="leadActorIndex" name="leadActorIndex" [(ngModel)]="leadActorIndex">
 
                 <ng-container *ngFor="let leadActor of leadActors; let i = index">
-                    <option [value]="i">{{ leadActor.name }}</option>
+                    <option [value]="i" [selected]="i === leadActorIndex">{{ leadActor.name }}</option>
                 </ng-container>
 
             </select>
 
-            <label for="leadActress">Lead Actress</label>
-            <select id="leadActress" name="leadActress" [(ngModel)]="leadActress">
+            <label for="leadActressIndex">Lead Actress</label>
+            <select id="leadActressIndex" name="leadActressIndex" [(ngModel)]="leadActressIndex">
 
                 <ng-container *ngFor="let leadActress of leadActresses; let i = index">
-                    <option [value]="i">{{ leadActress.name }}</option>
+                    <option [value]="i" [selected]="i === leadActressIndex">{{ leadActress.name }}</option>
                 </ng-container>
 
             </select>
