@@ -1,4 +1,7 @@
-<section (click)="getDetails()">
-    <img [src]="leadActor.imageUrl" [alt]="leadActor.name">
+<section>
+    <img [src]="leadActor.imageUrl" [alt]="leadActor.name" (click)="getDetails()">
     <p>{{ leadActor.name }}</p>
+    <button *ngIf="index !== 0" (click)="moveLeadActor('left')"><<</button>
+    <button id="delete" *ngIf="!active" (click)="deleteLeadActor()">X</button>
+    <button *ngIf="index !== lastIndex" (click)="moveLeadActor('right')">>></button>
 </section>

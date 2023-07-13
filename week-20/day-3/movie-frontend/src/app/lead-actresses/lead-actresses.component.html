@@ -5,9 +5,13 @@
         <!-- remember, this is a semantic-free container
              that will only be instantiated if the conditional
              or loop it describes returns something -->
-        <ng-container *ngFor="let leadActress of leadActresses">
+        <ng-container *ngFor="let leadActress of leadActresses; let i = index">
 
-            <app-lead-actress [leadActress]="leadActress"></app-lead-actress>
+            <app-lead-actress [leadActress]="leadActress"
+                              [active]="activeLeadActressIds.includes(leadActress.leadActressId)"
+                              [index]="i" 
+                              [lastIndex]="leadActresses.length - 1"
+                              (moveLeadActressEvent)="moveLeadActress($event, i)"></app-lead-actress>
 
         </ng-container>
 

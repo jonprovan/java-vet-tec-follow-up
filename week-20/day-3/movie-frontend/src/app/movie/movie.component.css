@@ -24,3 +24,8 @@ p {
 button {
     margin: 0px 5px;
 }
+
+#delete {
+    color: red;
+    font-weight: bold;
+}

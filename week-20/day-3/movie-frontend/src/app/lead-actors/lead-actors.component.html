@@ -2,9 +2,13 @@
     <article>
         <h1>LEAD ACTORS</h1>
 
-        <ng-container *ngFor="let leadActor of leadActors">
+        <ng-container *ngFor="let leadActor of leadActors; let i = index">
 
-            <app-lead-actor [leadActor]="leadActor"></app-lead-actor>
+            <app-lead-actor [leadActor]="leadActor"
+                            [active]="activeLeadActorIds.includes(leadActor.leadActorId)"
+                            [index]="i" 
+                            [lastIndex]="leadActors.length - 1"
+                            (moveLeadActorEvent)="moveLeadActor($event, i)"></app-lead-actor>
 
         </ng-container>
 

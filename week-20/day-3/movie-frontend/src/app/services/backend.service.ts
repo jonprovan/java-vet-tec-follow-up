@@ -175,4 +175,31 @@ export class BackendService {
              });
   }
 
+  // deleting a movie
+  deleteLeadActorById(leadActorId: number) {
+    this.http.delete(this.baseUrl + 'lead-actor/' + leadActorId, { observe: 'response'})
+             .subscribe(data => {
+              console.log(data);
+              this.getAllLeadActors();
+             })
+  }
+
+  // deleting a movie
+  deleteLeadActressById(leadActressId: number) {
+    this.http.delete(this.baseUrl + 'lead-actress/' + leadActressId, { observe: 'response'})
+             .subscribe(data => {
+              console.log(data);
+              this.getAllLeadActresses();
+             })
+  }
+
+  // deleting a movie
+  deleteMovieById(movieId: number) {
+    this.http.delete(this.baseUrl + 'movie/' + movieId, { observe: 'response'})
+             .subscribe(data => {
+              console.log(data);
+              this.getAllMovies();
+             })
+  }
+
 }

@@ -5,18 +5,27 @@ section {
     border: solid 1px rgb(0, 0, 0, .25);
     border-radius: 6px;
     margin: 0px 10px 10px 0px;
-    cursor: pointer;
+    text-align: center;
 }
 
 img {
     width: 130px;
     height: 192px;
+    cursor: pointer;
 }
 
 p {
-    margin: 0px;
-    text-align: center;
+    margin: 0px 0px 6px 0px;
     font-weight: bold;
     font-size: 13px;
     color: rgb(0, 0, 0, .75);
+}
+
+button {
+    margin: 0px 5px;
+}
+
+#delete {
+    color: red;
+    font-weight: bold;
 }

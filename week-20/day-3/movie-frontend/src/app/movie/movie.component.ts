@@ -3,6 +3,7 @@ import { Movie } from '../models/movie';
 import { LeadActor } from '../models/lead-actor';
 import { LeadActress } from '../models/lead-actress';
 import { Router } from '@angular/router';
+import { BackendService } from '../services/backend.service';
 
 @Component({
   selector: 'app-movie',
@@ -24,7 +25,7 @@ export class MovieComponent {
   @Output() moveMovieEvent = new EventEmitter<string>();
 
   // injecting a router to use for the detail links
-  constructor(private router: Router) {}
+  constructor(private router: Router, private backend: BackendService) {}
 
   // routing to the details page for this actress using her ID
   getDetails() {
@@ -34,6 +35,11 @@ export class MovieComponent {
   // a method that fires whenever the user clicks on the L/R buttons
   moveMovie(direction: string) {
     this.moveMovieEvent.emit(direction);
+  }
+
+  // calling our service method for deleting a movie
+  deleteMovie() {
+    this.backend.deleteMovieById(this.movie.movieId);
   }
 
 }
