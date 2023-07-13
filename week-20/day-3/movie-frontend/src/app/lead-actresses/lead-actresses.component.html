@@ -18,6 +18,28 @@
     </article>
 
     <aside>
+
+        <form #form>
+            <h2>ADD NEW LEAD ACTRESS</h2>
+
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" [(ngModel)]="name">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" [(ngModel)]="age">
+            <label for="academyAwards">Academy Awards Won</label>
+            <input type="number" id="academyAwards" name="academyAwards" [(ngModel)]="academyAwards">
+            <label for="imageUrl">Image URL</label>
+            <input type="text" id="imageUrl" name="imageUrl" [(ngModel)]="imageUrl">
+            <label for="imdbUrl">IMDB URL</label>
+            <input type="text" id="imdbUrl" name="imdbUrl" [(ngModel)]="imdbUrl">
+
+            <button (click)="addLeadActress(); form.reset();"
+                    [disabled]="name === '' 
+                             || age <= 0 
+                             || academyAwards < 0 
+                             || imageUrl === '' 
+                             || imdbUrl === ''">SUBMIT</button>
+        </form>
         
     </aside>
 </main>

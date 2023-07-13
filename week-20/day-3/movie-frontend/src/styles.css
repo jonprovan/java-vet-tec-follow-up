@@ -15,12 +15,39 @@ article {
 }
 
 aside {
-    width: 300px;
-    min-width: 300px;
+    width: 272px;
+    min-width: 272px;
     background-color: rgb(201, 210, 246);
+    padding: 14px 14px 30px 14px;
 }
 
 h1 {
     margin: 0 0 .5em 0;
     color: rgb(3, 3, 173);
+}
+
+aside h2 {
+    margin: 0px 0px 10px 0px;
+    color: rgb(3, 3, 173);
+    font-size: 18px;
+}
+
+aside label, input {
+    display: block;
+}
+
+aside label {
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+aside input {
+    margin-bottom: 12px;
+    padding: 4px;
+    width: 210px;
+}
+
+aside button {
+    padding: 6px 18px;
 }

@@ -13,6 +13,15 @@ export class LeadActressesComponent {
   leadActresses: LeadActress[] = [];
   activeLeadActressIds: number[] = [];
 
+  // these are for holding our form data before sending it to the service
+  leadActressId: number = 0;
+  name: string = '';
+  age: number = 0;
+  academyAwards: number = 0;
+  imageUrl: string = '';
+  imdbUrl: string = '';
+
+
   // in our constructor, we subscribe to the Observable
   // holding the current LeadActress[]
   constructor(private bes: BackendService) {
@@ -34,6 +43,16 @@ export class LeadActressesComponent {
     } else {
       this.leadActresses.splice(index + 1, 0, ...this.leadActresses.splice(index, 1));
     }
+  }
+
+  // using our ngModeled form to send a lead actress to our service
+  addLeadActress() {
+    this.bes.addLeadActress(new LeadActress(0, 
+                                            this.name, 
+                                            this.age, 
+                                            this.academyAwards,
+                                            this.imageUrl,
+                                            this.imdbUrl));
   }
 
 }

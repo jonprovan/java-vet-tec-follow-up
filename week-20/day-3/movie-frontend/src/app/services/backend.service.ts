@@ -175,11 +175,34 @@ export class BackendService {
              });
   }
 
+  // creating a lead actor
+  addLeadActor(leadActor: LeadActor) {
+    this.http.post(this.baseUrl + 'lead-actor', leadActor, { observe: 'response' })
+             .subscribe(() => {
+              this.getAllLeadActors();
+             })
+  }
+
+  // creating a lead actress
+  addLeadActress(leadActress: LeadActress) {
+    this.http.post(this.baseUrl + 'lead-actress', leadActress, { observe: 'response' })
+             .subscribe(() => {
+              this.getAllLeadActresses();
+             })
+  }
+
+  // creating a movie
+  addMovie(movie: Movie) {
+    this.http.post(this.baseUrl + 'movie', movie, { observe: 'response' })
+             .subscribe(() => {
+              this.getAllMovies();
+             })
+  }
+
   // deleting a movie
   deleteLeadActorById(leadActorId: number) {
     this.http.delete(this.baseUrl + 'lead-actor/' + leadActorId, { observe: 'response'})
-             .subscribe(data => {
-              console.log(data);
+             .subscribe(() => {
               this.getAllLeadActors();
              })
   }
@@ -187,8 +210,7 @@ export class BackendService {
   // deleting a movie
   deleteLeadActressById(leadActressId: number) {
     this.http.delete(this.baseUrl + 'lead-actress/' + leadActressId, { observe: 'response'})
-             .subscribe(data => {
-              console.log(data);
+             .subscribe(() => {
               this.getAllLeadActresses();
              })
   }
@@ -196,8 +218,7 @@ export class BackendService {
   // deleting a movie
   deleteMovieById(movieId: number) {
     this.http.delete(this.baseUrl + 'movie/' + movieId, { observe: 'response'})
-             .subscribe(data => {
-              console.log(data);
+             .subscribe(() => {
               this.getAllMovies();
              })
   }

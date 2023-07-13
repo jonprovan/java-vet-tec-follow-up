@@ -18,6 +18,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
 import { LeadActressDetailComponent } from './lead-actress-detail/lead-actress-detail.component';
 import { LeadActorDetailComponent } from './lead-actor-detail/lead-actor-detail.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
